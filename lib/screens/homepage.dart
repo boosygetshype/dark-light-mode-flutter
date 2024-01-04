@@ -12,29 +12,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "PROVIDERS",
-          style: TextStyle(
-            letterSpacing: 10,
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
+          centerTitle: true,
+          title: const Text(
+            "PROVIDERS",
+            style: TextStyle(
+              letterSpacing: 10,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
           ),
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FloatingActionButton(
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 Navigator.pushNamed(context, "/settingspage");
               },
-              child: const Icon(
-                Icons.settings,
-              ),
             )
-          ],
+          ]),
+      body: const Center(
+        child: Column(
+          children: [],
         ),
       ),
     );

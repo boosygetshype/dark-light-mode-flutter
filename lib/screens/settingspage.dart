@@ -24,13 +24,34 @@ class _MySettingsPageState extends State<MySettingsPage> {
             fontSize: 25,
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+              ))
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).secondaryHeaderColor
+                ],
+                stops: const [0, 1.0],
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            height: 70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
                   onPressed: () => _themeChanger.setTheme(
@@ -41,6 +62,13 @@ class _MySettingsPageState extends State<MySettingsPage> {
                     size: 50,
                   ),
                 ),
+                const Text(
+                  "Dark Mode",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                // const SizedBox(
+                //   width: 75,
+                // ),
                 IconButton(
                   onPressed: () => _themeChanger.setTheme(
                     ThemeData.light(),
@@ -49,11 +77,15 @@ class _MySettingsPageState extends State<MySettingsPage> {
                     Icons.light_mode_outlined,
                     size: 50,
                   ),
+                ),
+                const Text(
+                  "Light Mode",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 )
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
